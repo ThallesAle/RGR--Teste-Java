@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Endereço</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Detalhes do Endereço</h1>
+
+    <div th:if="${addressResponse != null}">
+        <div class="card">
+            <p><strong>Street:</strong> <span th:text="${addressResponse.result.street}">Street</span></p>
+            <p><strong>Complement:</strong> <span th:text="${addressResponse.result.complement}">Complement</span></p>
+            <p><strong>District:</strong> <span th:text="${addressResponse.result.district}">District</span></p>
+            <p><strong>District ID:</strong> <span th:text="${addressResponse.result.districtId}">District ID</span></p>
+            <p><strong>City:</strong> <span th:text="${addressResponse.result.city}">City</span></p>
+            <p><strong>City ID:</strong> <span th:text="${addressResponse.result.cityId}">City ID</span></p>
+            <p><strong>IBGE ID:</strong> <span th:text="${addressResponse.result.ibgeId}">IBGE ID</span></p>
+            <p><strong>State:</strong> <span th:text="${addressResponse.result.state}">State</span></p>
+            <p><strong>State IBGE ID:</strong> <span th:text="${addressResponse.result.stateIbgeId}">State IBGE ID</span></p>
+            <p><strong>State Shortname:</strong> <span th:text="${addressResponse.result.stateShortname}">State Shortname</span></p>
+            <p><strong>ZIP Code:</strong> <span th:text="${addressResponse.result.zipcode}">ZIP Code</span></p>
+        </div>
+    </div>
+
+    <div th:if="${addressResponse == null}" class="alert">
+        Address not found.
+    </div>
+</div>
+</body>
+</html>
